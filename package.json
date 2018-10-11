@@ -5,6 +5,9 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
+    "build:client": "vue-cli-service build",
+    "build:server": "cross-env WEBPACK_TARGET=node vue-cli-service build",
+    "build:win": "npm run build:server && mv dist/vue-ssr-server-bundle.json bundle && npm run build:client && mv bundle dist/vue-ssr-server-bundle.json",
     "lint": "vue-cli-service lint",
     "eslint-fix": "eslint src/**/**/*.vue --fix",
     "format-code": "prettier-eslint --write \"src/**/*.js\" \"src/**/*.vue\" \"*.config.js\" \".eslintrc.js\"",
@@ -27,23 +30,33 @@
     "@vue/cli-service": "^3.0.1",
     "@vue/eslint-config-prettier": "^3.0.4",
     "@vue/test-utils": "^1.0.0-beta.20",
+    "axios": "^0.18.0",
     "chai": "^4.1.2",
+    "connect-history-api-fallback": "^1.5.0",
+    "cross-env": "^5.2.0",
     "element-ui": "^2.4.7",
     "eslint-config-prettier": "^3.1.0",
     "eslint-plugin-prettier": "^2.7.0",
     "express": "^4.16.3",
+    "koa": "^2.5.3",
+    "koa-static": "^5.0.0",
+    "koa2-connect-history-api-fallback": "0.0.6",
     "lint-staged": "^7.2.2",
+    "lodash.merge": "^4.6.1",
     "node-sass": "^4.9.0",
     "prettier-eslint-cli": "^4.7.1",
     "sass-loader": "^7.0.1",
     "vue-server-renderer": "^2.5.17",
-    "vue-template-compiler": "^2.5.17"
+    "vue-ssr-webpack-plugin": "^3.0.0",
+    "vue-template-compiler": "^2.5.17",
+    "vuex-router-sync": "^5.0.0",
+    "webpack-node-externals": "^1.7.2"
   },
   "gitHooks": {
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,json,css,scss}": [
+    "*.{js,json,css}": [
       "prettier-eslint --write",
       "git add"
     ],
