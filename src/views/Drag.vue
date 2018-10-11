@@ -21,7 +21,7 @@
             </el-menu>
         </div>
         <div id="dragRContainer" class="drag-right-wrap" :style="!isCollapse?'margin-left:201px':'margin-left:65px'"
-             @dragenter="dragEnter" @dragover.prevent="dragOver($event)" @dragleave="dragLeave($event)" @drop.prevent="drop($event)">
+             @dragenter="dragEnter" @dragover.prevent="dragOver($event)" @drop.prevent="drop($event)">
             <el-tag
                     v-for="tag in tags"
                     :key="tag.name"
@@ -69,11 +69,9 @@ export default {
 	},
 	methods: {
 		dragStart(evt, item) {
-			console.info('dragStart', evt.dataTransfer)
 			evt.dataTransfer.setData('Text', item.name + ',' + item.id)
 		},
 		dragEnd(evt) {
-			console.info('dragEnd', evt)
 			evt.dataTransfer.clearData()
 		},
 		dragEnter() {
@@ -81,9 +79,6 @@ export default {
 		},
 		dragOver() {
 			//			console.info('dragOver', evt)
-		},
-		dragLeave(evt) {
-			console.info('dragLeave', evt)
 		},
 		drop(evt) {
 			//			evt.preventDefault()
