@@ -46,6 +46,7 @@
     "node-sass": "^4.9.0",
     "prettier-eslint-cli": "^4.7.1",
     "sass-loader": "^7.0.1",
+    "sinon": "^7.0.0",
     "vue-server-renderer": "^2.5.17",
     "vue-ssr-webpack-plugin": "^3.0.0",
     "vue-template-compiler": "^2.5.17",
